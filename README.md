@@ -1,4 +1,4 @@
-##### Basic JavaScript:
+### Basic JavaScript:
 
 1. [Use Recursion to Create a Countdown]("solutions/use-recursion-to-create-a-countdown.js")
 
@@ -24,7 +24,7 @@ function rangeOfNumbers(startNum, endNum) {
 }
 ```
 
-##### ES6:
+### ES6:
 
 1. Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements
 
