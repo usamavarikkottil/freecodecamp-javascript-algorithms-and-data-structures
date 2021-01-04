@@ -26,7 +26,7 @@ function rangeOfNumbers(startNum, endNum) {
 
 ## ES6:
 
-1. Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements
+1. [Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements](solutions/Use%20Destructuring%20Assignment%20with%20the%20Rest%20Parameter%20to%20Reassign%20Array%20Elements.js)
 
 ```javascript
 const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
