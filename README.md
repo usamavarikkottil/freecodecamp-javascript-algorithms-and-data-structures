@@ -38,3 +38,23 @@ function removeFirstTwo(list) {
 }
 const arr = removeFirstTwo(source);
 ```
+
+2. [Use Destructuring Assignment to Pass an Object as a Function's Parameters]("solutions/Use%20Destructuring%20Assignment%20to%20Pass%20an%20Object%20as%20a%20Function's%20Parameters.js")
+
+```javascript
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85,
+};
+// change code below this line
+const half = ({ max, min }) => (max + min) / 2.0; // use function argument destructurung
+// change code above this line
+console.log(stats); // should be object
+console.log(half(stats)); // should be 28.015
+```
+
+[Challenge Link:](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-destructuring-assignment-to-pass-an-object-as-a-functions-parameters)
