@@ -159,3 +159,80 @@ let quoteSample = "Blueberry 3.141592653s are delicious.";
 let myRegex = /[h-s2-6]/gi;
 let result = quoteSample.match(myRegex);
 ```
+
+9. [Match Single Characters Not Specified](#)
+
+`/[^aeiou]/gi` matches all characters that are not a vowel. Note that characters like `., !, [, @, /` and white space are matched - the negated vowel character set only excludes the vowel characters.
+
+- Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
+
+```javascript
+let quoteSample = "3 blind mice.";
+let myRegex = /[^0-9aeiou]/gi;
+let result = quoteSample.match(myRegex);
+```
+
+10. [Match Characters that Occur One or More Times](#)
+
+You want to find matches when the letter s occurs one or more times in "Mississippi". Write a regex that uses the + sign.
+
+```javascript
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g;
+let result = difficultSpelling.match(myRegex);
+```
+
+11. [Match Characters that Occur Zero or More Times](#)
+
+```javascript
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+soccerWord.match(goRegex); // Returns ["goooooooo"]
+gPhrase.match(goRegex); // Returns ["g"]
+oPhrase.match(goRegex); // Returns null
+```
+
+12. [Match Beginning String Patterns](#)
+
+In an earlier challenge, you used the caret character (`^`) inside a character set to create a negated character set in the form `[^thingsThatWillNotBeMatched]`. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+
+```javascript
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+// Returns true
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+// Returns false
+```
+
+13. [Match Ending String Patterns](#)
+    You can search the end of strings using the dollar sign character $ at the end of the regex.
+
+```javascript
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/;
+storyRegex.test(theEnding);
+// Returns true
+let noEnding = "Sometimes a story will have to end";
+storyRegex.test(noEnding);
+// Returns false
+```
+
+14. [Match All Letters and Numbers](#)
+
+The closest character class in JavaScript to match the alphabet is `\w`. This shortcut is equal to `[A-Za-z0-9_]`. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character `_`.
+These shortcut character classes are also known as shorthand character classes.
+
+```javascript
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers); // Returns true
+shortHand.test(numbers); // Returns true
+longHand.test(varNames); // Returns true
+shortHand.test(varNames); // Returns true
+```
