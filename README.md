@@ -39,7 +39,9 @@ function removeFirstTwo(list) {
 const arr = removeFirstTwo(source);
 ```
 
-2. [Use Destructuring Assignment to Pass an Object as a Function's Parameters]("solutions/Use%20Destructuring%20Assignment%20to%20Pass%20an%20Object%20as%20a%20Function's%20Parameters.js")
+2. [Use Destructuring Assignment to Pass an Object as a Function's Parameters](solutions/Use%20Destructuring%20Assignment%20to%20Pass%20an%20Object%20as%20a%20Function's%20Parameters.js)
+
+[Challenge Link:](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-destructuring-assignment-to-pass-an-object-as-a-functions-parameters)
 
 ```javascript
 const stats = {
@@ -57,4 +59,20 @@ console.log(stats); // should be object
 console.log(half(stats)); // should be 28.015
 ```
 
-[Challenge Link:](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-destructuring-assignment-to-pass-an-object-as-a-functions-parameters)
+## Regular Expressions:
+
+[Match a Literal String with Different Possibilities](solutions/)
+
+```javascript
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/; // Change this line
+let result = petRegex.test(petString);
+```
+
+[Ignore Case While Matching](#)
+
+```javascript
+let myString = "freeCodeCamp";
+let fccRegex = /freecodecamp/i; // Change this line
+let result = fccRegex.test(myString);
+```
