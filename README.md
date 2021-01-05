@@ -162,7 +162,7 @@ let result = quoteSample.match(myRegex);
 
 9. [Match Single Characters Not Specified](#)
 
-`/[^aeiou]/gi` matches all characters that are not a vowel. Note that characters like `., !, [, @, /` and white space are matched - the negated vowel character set only excludes the vowel characters.
+`/[^aeiou]/gi` matches all characters that are not a vowel. Note that characters like `.`, `!`, `[`, `@`, `/` and white space are matched - the negated vowel character set only excludes the vowel characters.
 
 - Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
 
@@ -174,7 +174,7 @@ let result = quoteSample.match(myRegex);
 
 10. [Match Characters that Occur One or More Times](#)
 
-You want to find matches when the letter s occurs one or more times in "Mississippi". Write a regex that uses the + sign.
+You want to find matches when the letter `s` occurs one or more times in `Mississippi`. Write a regex that uses the `+` sign.
 
 ```javascript
 let difficultSpelling = "Mississippi";
@@ -209,7 +209,7 @@ firstRegex.test(notFirst);
 ```
 
 13. [Match Ending String Patterns](#)
-    You can search the end of strings using the dollar sign character $ at the end of the regex.
+    You can search the end of strings using the dollar sign character `$` at the end of the regex.
 
 ```javascript
 let theEnding = "This is a never ending story";
@@ -235,4 +235,76 @@ longHand.test(numbers); // Returns true
 shortHand.test(numbers); // Returns true
 longHand.test(varNames); // Returns true
 shortHand.test(varNames); // Returns true
+```
+
+15. [Match Everything But Letters and Numbers](#)
+    You can search for the opposite of the `\w` with `\W`. Note, the opposite pattern uses a capital letter. This shortcut is the same as `[^A-Za-z0-9_]`
+
+```javascript
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand); // Returns ["%"]
+sentence.match(shortHand); // Returns ["!"]
+```
+
+16. [Match All Numbers](#)
+    The shortcut to look for digit characters is `\d`, with a lowercase `d`. This is equal to the character class `[0-9]`, which looks for a single character of any number between zero and nine.
+
+- Use the shorthand character class `\d` to count how many digits are in movie titles. Written out numbers ("six" instead of 6) do not count.
+
+```javascript
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g;
+let result = movieName.match(numRegex).length;
+```
+
+17. [Match All Non-Numbers](#)
+
+The shortcut to look for non-digit characters is `\D`. This is equal to the character class `[^0-9]`, which looks for a single character that is not a number between zero and nine.
+
+18. [Restrict Possible Usernames](#)
+    You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+- Usernames can only use alpha-numeric characters.
+- The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+- Username letters can be lowercase and uppercase.
+- Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+```javascript
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
+```
+
+19. [Match Whitespace](#)
+    You can search for whitespace using `\s`, which is a lowercase `s`. This pattern not only matches whitespace, but also `carriage return`, `tab`, `form feed`, and `new line` characters. You can think of it as similar to the character class `[ \r\t\f\n\v]`.
+
+```javascript
+let whiteSpace = "Whitespace. Whitespace everywhere!";
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+// Returns [" ", " "]
+```
+
+20. [Specify Upper and Lower Number of Matches](#)
+
+You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets (`{` and `}`). You put two numbers between the curly brackets - for the lower and upper number of patterns.
+
+For example, to match only the letter `a` appearing between `3` and `5` times in the string "`ah`", your regex would be `/a{3,5}h/`.
+
+```javascript
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4); // Returns true
+multipleA.test(A2); // Returns false
+```
+
+- Change the regex `ohRegex` to match the entire phrase "`Oh no`" only when it has `3` to `6` letter `h`'s.
+
+```javascript
+let ohStr = "Ohhh no";
+let ohRegex = /oh{3,6}\sno/gi;
+let result = ohRegex.test(ohStr);
 ```
