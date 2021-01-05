@@ -76,7 +76,8 @@ let result = fccRegex.test(myString);
 ```
 
 3. [Extract Matches](#)
-   Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
+
+Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
 
 ```javascript
 "string".match(/regex/);
@@ -87,4 +88,45 @@ let result = fccRegex.test(myString);
 let extractStr = "Extract the word 'coding' from this string.";
 let codingRegex = /coding/;
 let result = extractStr.match(codingRegex);
+```
+
+4. Find More Than the First Match
+
+```javascript
+let twinkleStar = "Twinkle, twinkle, little star";
+let starRegex = /twinkle/gi;
+let result = twinkleStar.match(starRegex);
+```
+
+5. Match Anything with Wildcard Period
+
+```javascript
+let exampleStr = "Let's have fun with regular expressions!";
+let unRegex = /.un/;
+let result = unRegex.test(exampleStr);
+```
+
+6. Match Single Character with Multiple Possibilities
+
+```javascript
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bigStr.match(bgRegex); // Returns ["big"]
+bagStr.match(bgRegex); // Returns ["bag"]
+bugStr.match(bgRegex); // Returns ["bug"]
+bogStr.match(bgRegex); // Returns null
+```
+
+- Use a character class with vowels (a, e, i, o, u) in your regex `vowelRegex` to find all the vowels in the string `quoteSample`.
+  Note:
+  Be sure to match both upper- and lowercase vowels.
+
+```javascript
+let quoteSample =
+  "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+let vowelRegex = /[aeiou]/gi;
+let result = quoteSample.match(vowelRegex);
 ```
