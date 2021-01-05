@@ -308,3 +308,60 @@ let ohStr = "Ohhh no";
 let ohRegex = /oh{3,6}\sno/gi;
 let result = ohRegex.test(ohStr);
 ```
+
+21. [Specify Only the Lower Number of Matches](#)
+
+To only specify the lower number of patterns, keep the first number followed by a comma.
+
+For example, to match only the string "`hah`" with the letter `a` appearing at least 3 times, your regex would be `/ha{3,}h/`.
+
+22. [Specify Exact Number of Matches](#)
+
+To specify a certain number of patterns, just have that one number between the curly brackets.
+For example, to match only the word "`hah`" with the letter `a` 3 times, your regex would be `/ha{3}h/`.
+
+23. [Check for All or None](#)
+
+Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
+You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+
+For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+
+```javascript
+let american = "color";
+let british = "colour";
+let rainbowRegex = /colou?r/;
+rainbowRegex.test(american); // Returns true
+rainbowRegex.test(british); // Returns true
+```
+
+24. [Positive and Negative Lookahead](#)
+
+A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (`?=`...) where the ... is the required part that is not matched.
+
+On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (`?!`...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
+```javascript
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+checkPass.test(password); // Returns true
+```
+
+Use lookaheads in the `pwRegex` to match passwords that are greater than `5` characters long, do not begin with numbers, and have two consecutive digits.
+
+```javascript
+let sampleWord = "astronaut";
+let pwRegex = /^\D(?=\w{5})(?=\w*\d{2})/;
+let result = pwRegex.test(sampleWord);
+```
+
+25. [Check For Mixed Grouping of Characters](#)
+
+- Fix the regex so that it checks for the names of `Franklin Roosevelt` or `Eleanor Roosevelt` in a case sensitive manner and it should make concessions for middle names.
+  Then fix the code so that the regex that you have created is checked against `myString` and either `true` or `false` is returned depending on whether the regex matches.
+
+```javascript
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor).*Roosevelt/;
+let result = myRegex.test(myString);
+```
