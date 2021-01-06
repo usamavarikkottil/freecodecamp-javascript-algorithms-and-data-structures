@@ -613,7 +613,6 @@ function countOnline(usersObj) {
   // Only change code below this line
   let count = 0;
   for (let user in usersObj) {
-    console.log(user);
     usersObj[user].online && count++;
   }
   return count;
