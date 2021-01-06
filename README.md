@@ -430,3 +430,55 @@ let hello = "   Hello, World!  ";
 let wsRegex = /^\s+|\s+$/g;
 let result = hello.replace(wsRegex, "");
 ```
+
+## Basic Data Structures:
+
+1. [Add Items Using `splice()`](#)
+
+```javascript
+const numbers = [10, 11, 12, 12, 15];
+const startIndex = 3;
+const amountToDelete = 1;
+
+numbers.splice(startIndex, amountToDelete, 13, 14);
+// the second entry of 12 is removed, and we add 13 and 14 at the same index
+console.log(numbers);
+// returns [ 10, 11, 12, 13, 14, 15 ]
+```
+
+2. [Copy Array Items Using `slice()`](#)
+
+The next method we will cover is `slice()`. Rather than modifying an array, `slice()` copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. `slice()` takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index). Consider this:
+
+```javascript
+let weatherConditions = ["rain", "snow", "sleet", "hail", "clear"];
+
+let todaysWeather = weatherConditions.slice(1, 3);
+// todaysWeather equals ['snow', 'sleet'];
+// weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
+```
+
+3. [Copy an Array with the Spread Operator](#)
+
+While `slice()` allows us to be selective about what elements of an array to copy, among several other useful tasks, ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax. The spread syntax simply looks like this: `...`
+
+```javascript
+let thisArray = [true, true, undefined, false, null];
+let thatArray = [...thisArray];
+// thatArray equals [true, true, undefined, false, null]
+// thisArray remains unchanged and thatArray contains the same elements as thisArray
+```
+
+- We have defined a function, `copyMachine` which takes `arr` (an array) and `num` (a number) as arguments. The function is supposed to return a new array made up of `num` copies of `arr`. We have done most of the work for you, but it doesn't work quite right yet. Modify the function using spread syntax so that it works correctly (hint: another method we have already covered might come in handy here!).
+
+```javascript
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.unshift([...arr]);
+    num--;
+  }
+  return newArr;
+}
+console.log(copyMachine([true, false, true], 2));
+```
