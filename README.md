@@ -482,3 +482,141 @@ function copyMachine(arr, num) {
 }
 console.log(copyMachine([true, false, true], 2));
 ```
+
+4. [Check For The Presence of an Element With `indexOf()`](#)
+
+JavaScript provides us with another built-in method, `indexOf()`, that allows us to quickly and easily check for the presence of an element on an array. `indexOf()` takes an element as a parameter, and when called, it returns the position, or index, of that element, or `-1` if the element does not exist on the array.
+
+- We have defined a function, `quickCheck`, that takes an array and an element as arguments. Modify the function using `indexOf()` so that it returns `true` if the passed element exists on the array, and `false` if it does not.
+
+```javascript
+function quickCheck(arr, elem) {
+  // Only change code below this line
+  return arr.indexOf(elem) >= 0;
+  // Only change code above this line
+}
+
+console.log(quickCheck(["squash", "onions", "shallots"], "squash"));
+```
+
+5. [Iterate Through All an Array's Items Using For Loops](#)
+
+- We have defined a function, `filteredArray`, which takes `arr`, a nested array, and `elem` as arguments, and returns a new array. `elem` represents an element that may or may not be present on one or more of the arrays nested within `arr`. Modify the function, using a `for` loop, to return a filtered version of the passed array such that any array nested within `arr` containing `elem` has been removed.
+
+```javascript
+function filteredArray(arr, elem) {
+  let newArr = [];
+  // Only change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].indexOf(elem) < 0 && newArr.push(arr[i]);
+  }
+  // Only change code above this line
+  return newArr;
+}
+
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+      [3, 13, 26],
+      [19, 3, 9],
+    ],
+    3
+  )
+);
+```
+
+6. [Check if an Object has a PropertyPassed](#)
+
+If we have an object `users` with a property of `Alan`, we could check for its presence in either of the following ways:
+
+```javascript
+users.hasOwnProperty("Alan");
+"Alan" in users;
+// both return true
+```
+
+We've created an object, `users`, with some `users` in it and a function `isEveryoneHere`, which we pass the `users` object to as an argument. Finish writing this function so that it returns `true` only if the users object contains all four names, `Alan`, `Jeff`, `Sarah`, and `Ryan`, as keys, and `false` otherwise.
+
+```javascript
+let users = {
+  Alan: {
+    age: 27,
+    online: true,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: true,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
+};
+
+function isEveryoneHere(obj) {
+  // Only change code below this line
+  return ["Alan", "Jeff", "Sarah", "Ryan"].every((name) =>
+    obj.hasOwnProperty(name)
+  );
+  // Only change code above this line
+}
+
+console.log(isEveryoneHere(users));
+```
+
+7. [Iterate Through the Keys of an Object with a for...in Statement](#)
+
+Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a `for...in` statement. For our `users` object, this could look like:
+
+```javascript
+for (let user in users) {
+  console.log(user);
+}
+
+// logs:
+Alan;
+Jeff;
+Sarah;
+Ryan;
+```
+
+In this statement, we defined a variable `user`, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console. NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+
+- We've defined a function `countOnline` which accepts one argument (a users object). Use a `for...in` statement within this function to loop through the `users` object passed into the function and return the number of `users` whose `online` property is set to `true`. An example of a `users` object which could be passed to `countOnline` is shown below. Each user will have an `online` property with either a `true` or `false` value.
+- Example:
+
+```javascript
+{
+  Alan: {
+    online: false
+  },
+  Jeff: {
+    online: true
+  },
+  Sarah: {
+    online: false
+  }
+}
+
+```
+
+- Solution:
+
+```javascript
+function countOnline(usersObj) {
+  // Only change code below this line
+  let count = 0;
+  for (let user in usersObj) {
+    console.log(user);
+    usersObj[user].online && count++;
+  }
+  return count;
+  // Only change code above this line
+}
+```
