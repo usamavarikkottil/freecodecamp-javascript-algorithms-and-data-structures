@@ -653,3 +653,27 @@ function getArrayOfUsers(obj) {
 }
 console.log(getArrayOfUsers(users));
 ```
+
+## Basic Algorithm Scripting:
+
+1. [Reverse a String](#)
+
+```javascript
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+
+reverseString("hello");
+```
+
+2. [Factorialize a Number](#)
+
+Return the factorial of the provided integer.
+
+If the integer is represented with the letter `n`, a factorial is the product of all positive integers less than or equal to `n`.
+
+Factorials are often represented with the shorthand notation `n!`
+
+For example: `5! = 120`
+
+Only integers greater than or equal to zero will be supplied to the function.
