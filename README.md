@@ -677,3 +677,15 @@ Factorials are often represented with the shorthand notation `n!`
 For example: `5! = 120`
 
 Only integers greater than or equal to zero will be supplied to the function.
+
+```javascript
+function factorialize(num) {
+  if (num == 0) {
+    return 1;
+  } else {
+    return num * factorialize(num - 1);
+  }
+}
+
+factorialize(5);
+```
