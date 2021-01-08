@@ -701,3 +701,11 @@ function findLongestWordLength(str) {
 
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
 ```
+
+another solution
+
+```javascript
+function findLongestWordLength(str) {
+  return Math.max(...str.split(" ").map((word) => word.length));
+}
+```
