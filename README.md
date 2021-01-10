@@ -830,3 +830,26 @@ function frankenSplice(arr1, arr2, n) {
 
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
 ```
+
+11. [Falsy Bouncer](#)
+
+Remove all falsy values from an array.
+Falsy values in JavaScript are `false`, `null`, `0`, `""`, `undefined`, and `NaN`.
+
+```javascript
+function bouncer(arr) {
+  return arr.filter((value) => value && value);
+}
+
+bouncer([7, "ate", "", false, 9]);
+```
+
+OR,
+
+```javascript
+function bouncer(arr) {
+  return arr.filter(Boolean);
+}
+
+bouncer([7, "ate", "", false, 9]);
+```
