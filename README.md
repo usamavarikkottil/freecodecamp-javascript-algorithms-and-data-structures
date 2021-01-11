@@ -853,3 +853,21 @@ function bouncer(arr) {
 
 bouncer([7, "ate", "", false, 9]);
 ```
+
+12. [Title Case a Sentence](#)
+
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+```javascript
+function titleCase(str) {
+  let array = str.toLowerCase().split(" ");
+  array = array.map((word) => {
+    let firstLetter = word.charAt(0).toUpperCase();
+    return word.replace(word.charAt(0), firstLetter);
+  });
+  return array.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+```
